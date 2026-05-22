@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emile's Gym site/form</title>
+    
+    <style>
+        #main-heading {
+            text-align: center;
+            font-size: 400%;
+            font-family: Berlin Sans FB;
+        }
+
+        #main {
+            width: 1200px;
+            height: 420px;
+            margin: auto;
+            border: 2.15px solid rgb(219, 219, 219);
+            border-radius: 10px;
+            padding: 40px;
+        }
+
+        #row1 {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+        }
+
+        #row1 select {
+            width: 300px;
+            font-size: large;
+        }
+
+        #row2 {
+            margin: 50px;
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+        }
+
+        .stack {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stack label {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .stack input {
+            width: 350px;
+            font-size: large;
+        }
+
+        #row3 {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 58px;
+        }
+
+        #row4 {
+            display: flex;
+            justify-content: center;
+        }
+
+        #submit {
+            width: 800px;
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #return {
+            width: 75px;
+            height: auto;
+            float: right;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 id="main-heading"><u>APPLICATION FORM</u></h1>
+    
+    <button id="return">click here to return to the home page</button>
+    <script>
+        document.querySelector("#return").addEventListener("click" , function () {
+            window.location.href = "gym-site-home.html";
+        });
+    </script>
+
+    <div id="main">
+
+        <div id="row1"> <!-- 1st row -->
+
+            <select id="years"> <!-- year -->
+                <option value="" disabled selected>Birth year</option>
+            </select>
+
+            <script> // year scaling
+                let select = document.getElementById("years");
+
+                for (let year = 2012; year >= 1955; year--) {
+                    let option = document.createElement("option");
+
+                    option.text = year;
+                    option.value = year;
+
+                    select.appendChild(option);
+                }
+
+                document.addEventListener("DOMContentLoaded" , function () {
+                    document.getElementById("submit").addEventListener("click" , function () {
+                        alert("form submitted successfully");
+                    });
+                });
+            </script>
+
+            <select id="month"> <!-- month -->
+                <option value="" disabled selected>Birth month</option>
+
+                <option value="january">January</option>
+                <option value="february">February</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="august">August</option>
+                <option value="september">September</option>
+                <option value="october">October</option>
+                <option value="november">November</option>
+                <option value="december">December</option>
+            </select>
+
+            <select id="day"> <!-- day -->
+                <option value="" disabled selected>Birth day</option>
+            </select>
+
+            <script> // day scaling
+                let daySelect = document.getElementById("day");
+
+                for (let day = 1; day <= 31; day++) {
+                    let option = document.createElement("option");
+
+                    option.text = day;
+                    option.value = day;
+
+                    daySelect.appendChild(option);
+                }
+            </script>
+
+        </div>
+
+        <div id="row2"> <!-- 2nd row -->
+
+            <div class="stack">
+                <label for="first-name">Enter First Name</label>
+                <input type="text" placeholder="first name" id="first-name">
+            </div>
+
+            <div class="stack">
+                <label for="last-name">Enter Last Name</label>
+                <input type="text" placeholder="last name" id="last-name">
+            </div>
+
+        </div>
+
+        <div id="row3"> <!--3rd row-->
+            <div class="stack">
+                <label for="email">Enter email</label>
+                <input type="text" placeholder="example@gmail.com" id="email">
+            </div>
+
+            <div class="stack">
+                <label for="number">Enter phone number</label>
+                <input type="text" placeholder="phone number" id="number">
+            </div>
+        </div>
+
+        <div id="row4">
+            <button id="submit">submit</button>
+        </div>
+
+    </div>
+</body>
+</html>

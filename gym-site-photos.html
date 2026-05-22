@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emiles Gym website/photos</title>
+
+    <style>
+        #return {
+            width: 75px;
+            height: auto;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <img src="gym-image1.jfif">
+    <img src="gym-image2.jfif">
+
+    <button id="return">click here to return to the home page</button>
+    <script>
+        document.querySelector("#return").addEventListener("click" , function () {
+            window.location.href = "gym-site-home.html";
+        });
+    </script>
+</body>
+</html>

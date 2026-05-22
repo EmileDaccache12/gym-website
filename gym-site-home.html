@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emile's Gym Website/home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #main_h1 {
+            text-align: center;
+            font-size: 500%;
+            font-family: algerian;
+            font-weight: 349;
+            color: darkcyan;
+        }
+
+        #main {
+            color: white;
+            padding: 10px;
+        }
+
+        #content {
+            display: flex;
+            align-items: top;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            #content {
+                flex-direction: column;
+            }
+        }
+
+        #footer {
+            display: flex;
+            align-items: center;
+            gap: 560px;
+        }
+
+        .buttons {
+            gap: 30px;
+            background-color: brown;
+            height: 70px;
+            font-size: 200%;
+        }
+
+        #buttons_div {
+            align-items: baseline;
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            document.querySelector("#register").addEventListener("click", function () {
+                window.location.href = "gym-site-form.html";
+            });
+
+            document.querySelector("#photos").addEventListener("click", function () {
+                window.location.href = "gym-site-photos.html";
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+
+    <div id="main" style="background-color: rgb(39, 39, 39);">
+        <h1 id="main_h1"><b><u>EMILE'S GYM WEBSITE</u></b></h1>
+
+        <div id="content">
+            <img src="gym-image3.png" width="750px" height="auto" id="img1">
+
+            <div>
+                <h2>Location and Opening Time:</h2>
+                <ul>
+                    <li>Beirut, Lebanon - block 28</li>
+                    <li>Monday => saturday: 8am - 7pm</li>
+                </ul>
+
+                <h2>Memberships:</h2>
+                <ul>
+                    <li>Normal: $45/month + $28/month insurance(optional)</li>
+                    <li>PT: $18/session(included insurance)</li>
+                    <li>1st time free(trial)</li>
+                </ul>
+
+                <h2>Benifits:</h2>
+                <ul>
+                    <li>Modern and reliable equipment</li>
+                    <li>Stay strong and fit</li>
+                    <li>Energized mood and music</li>
+                    <li>Free hot water showers</li>
+                    <li>Fitness area</li>
+                </ul>
+
+                <div id="buttons_div">
+                    <button class="buttons" id="photos">more gym photos</button>
+                    <button class="buttons" id="register">register</button>
+                </div>
+
+            </div>
+        </div>
+        <div id="footer">
+            <h2 style="color: lightblue;">contact: ## ### ###</h2>
+        </div>
+    </div>
+
+</body>
+</html>
