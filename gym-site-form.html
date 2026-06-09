@@ -3,189 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emile's Gym site/form</title>
-    
+    <title>Emile's Gym Website/form</title>
+
     <style>
-        #main-heading {
+        #main-h1 {
             text-align: center;
             font-size: 400%;
-            font-family: Berlin Sans FB;
-        }
-
-        #main {
-            width: 1200px;
-            height: 420px;
-            margin: auto;
-            border: 2.15px solid rgb(219, 219, 219);
-            border-radius: 10px;
-            padding: 40px;
-        }
-
-        #row1 {
-            display: flex;
-            gap: 50px;
-            justify-content: center;
-        }
-
-        #row1 select {
-            width: 300px;
-            font-size: large;
-        }
-
-        #row2 {
-            margin: 50px;
-            display: flex;
-            gap: 60px;
-            justify-content: center;
-        }
-
-        .stack {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stack label {
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-
-        .stack input {
-            width: 350px;
-            font-size: large;
-        }
-
-        #row3 {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin: 58px;
-        }
-
-        #row4 {
-            display: flex;
-            justify-content: center;
-        }
-
-        #submit {
-            width: 800px;
-            font-size: xx-large;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-weight: bolder;
+            font-family: Berlin Sans FB , 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         #return {
-            width: 75px;
-            height: auto;
             float: right;
         }
 
-    </style>
-</head>
+        #main{
+            margin: auto;
+            width: 71%;
+            height: auto;
+            border: 2.15px solid rgb(219, 219, 219);
+            padding: 40px;
+            border-radius: 10px;
+        }
 
-<body>
-    <h1 id="main-heading"><u>APPLICATION FORM</u></h1>
-    
-    <button id="return">click here to return to the home page</button>
+        select {
+            width: 70%;
+            height: auto;
+            font-size: large;
+            cursor: pointer;
+        }
+
+        input {
+            font-size: large;
+            width: 100%;
+            height: auto;
+        }
+
+        .rows {
+            display: flex;
+            margin-bottom: 60px;
+            gap: 30px;
+        }
+
+        .container {
+            margin: auto;
+            display: flex;
+            gap: 30px;
+        }
+
+        #submit {
+            width: 85%;
+            height: auto;
+            font-size: xx-large;
+            text-align: center;
+            margin: auto;
+            padding: 3px;
+        }
+
+        #submit:hover {
+            transform: scale(1.03);
+            cursor: pointer;
+        }
+
+        @media (max-width: 700px) {
+            #main-h1 {
+                font-size: 300%;
+            }
+
+            input , select {
+                font-size: medium;
+            }
+
+            #main {
+                width: 85%;
+                padding: 25px;
+            }
+
+            .rows {
+                gap: 15px;
+            }
+        }
+        
+    </style>
+
     <script>
-        document.querySelector("#return").addEventListener("click" , function () {
-            window.location.href = "gym-site-home.html";
+        document.addEventListener("DOMContentLoaded" , function () {
+            document.querySelector("#submit").addEventListener("click" , function () {
+                alert("Your form has been submitted");
+            });
         });
+
+        console.log(
+            "this is the console"
+        )
     </script>
+</head>
+<body>
+    <div id="heading">
+        <h1 id="main-h1">APPLICATION FORM</h1>
+        <a href="gym-site-home.html">
+            <button id="return">Home</button>
+        </a>
+    </div>
 
     <div id="main">
-
-        <div id="row1"> <!-- 1st row -->
-
-            <select id="years"> <!-- year -->
-                <option value="" disabled selected>Birth year</option>
+        <div id="row1" class="rows">
+            <select name="year" id="year">
+                <option value="placeholder" disabled selected>Birth Year</option>
             </select>
+            <script> //years
+                const select1 = document.getElementById("year");
 
-            <script> // year scaling
-                let select = document.getElementById("years");
-
-                for (let year = 2012; year >= 1955; year--) {
-                    let option = document.createElement("option");
-
-                    option.text = year;
+                for (let year = 1961; year <= 2014; year++) {
+                    const option = document.createElement("option");
                     option.value = year;
-
-                    select.appendChild(option);
-                }
-
-                document.addEventListener("DOMContentLoaded" , function () {
-                    document.getElementById("submit").addEventListener("click" , function () {
-                        alert("form submitted successfully");
-                    });
-                });
-            </script>
-
-            <select id="month"> <!-- month -->
-                <option value="" disabled selected>Birth month</option>
-
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
-            </select>
-
-            <select id="day"> <!-- day -->
-                <option value="" disabled selected>Birth day</option>
-            </select>
-
-            <script> // day scaling
-                let daySelect = document.getElementById("day");
-
-                for (let day = 1; day <= 31; day++) {
-                    let option = document.createElement("option");
-
-                    option.text = day;
-                    option.value = day;
-
-                    daySelect.appendChild(option);
+                    option.textContent = year;
+                    select1.appendChild(option);
                 }
             </script>
 
+            <select name="month" id="month">
+                <option value="placeholder" disabled selected>Birth Month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">september</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+
+            <select name="day" id="day">
+                <option value="placeholder" disabled selected>Birth Year</option>
+            </select>
+            <script> //days
+                const select2 = document.getElementById("day");
+
+                for (let year = 1; year <= 31; year++) {
+                    const option = document.createElement("option");
+                    option.value = year;
+                    option.textContent = year;
+                    select2.appendChild(option);
+                }
+            </script>
         </div>
 
-        <div id="row2"> <!-- 2nd row -->
+        <div id="row2" class="rows">
+            <div class="container">
+                <div class="stack">
+                    <label for="input">Enter First Name</label>
+                    <input type="text" placeholder="First Name">
+                </div>
 
-            <div class="stack">
-                <label for="first-name">Enter First Name</label>
-                <input type="text" placeholder="first name" id="first-name">
-            </div>
-
-            <div class="stack">
-                <label for="last-name">Enter Last Name</label>
-                <input type="text" placeholder="last name" id="last-name">
-            </div>
-
-        </div>
-
-        <div id="row3"> <!--3rd row-->
-            <div class="stack">
-                <label for="email">Enter email</label>
-                <input type="text" placeholder="example@gmail.com" id="email">
-            </div>
-
-            <div class="stack">
-                <label for="number">Enter phone number</label>
-                <input type="text" placeholder="phone number" id="number">
+                <div class="stack">
+                    <label for="input">Enter Last Name</label>
+                    <input type="text" placeholder="Last Name">
+                </div>
             </div>
         </div>
 
-        <div id="row4">
-            <button id="submit">submit</button>
+        <div id="row3" class="rows">
+            <div class="container">
+                <div class="stack">
+                    <label for="input">Enter Email</label>
+                    <input type="text" placeholder="example@gmail.com" id="email">
+                </div>
+
+                <div class="stack">
+                    <label for="input">Enter Phone</label>
+                    <input type="text" placeholder="Phone Number" id="phone">
+                </div>
+            </div>
         </div>
 
+        <div id="row4" class="rows">
+            <button id="submit">SUBMIT</button>
+        </div>
     </div>
 </body>
 </html>
